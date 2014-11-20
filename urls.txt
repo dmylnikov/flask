@@ -1,0 +1,5 @@
+привет http://google.ru
+hello http://google.ru
+my short url http://ya.ru
+my_short_url http://ya.ru
+my_short_url1 http://ya.ru
