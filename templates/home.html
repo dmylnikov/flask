@@ -24,9 +24,9 @@
 					</div>
 					<button type="submit" class="btn btn-default">Make nice!</button>
 				</form>
-				{% if ck.free %}
+				{% if ck.status == 1 %}
 				<div style="color: green"><h4>Your nice URL: <a href={{ck.niceFull}}>{{ck.niceFull}}</a></h4></div>
-				{% else %}
+				{% elif ck.status == 2 %}
 				<div style="color: red"><h4>URL "{{ck.niceFull}}" is busy</h4></div>
 				{% endif %}
 			</div>

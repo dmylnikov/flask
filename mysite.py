@@ -5,7 +5,8 @@ app = Flask(__name__)
 @app.route("/")
 def home():
 	ck = request.cookies.get('ck')
-	ck = json.loads(ck)
+	if ck != None:
+		ck = json.loads(ck)
 	return render_template('home.html', ck = ck)
 
 @app.route("/nice", methods=["POST"])
@@ -15,11 +16,11 @@ def MakeNice():
 	if takeUrl(niceUrl) == '':
 		with open('urls.txt', 'a') as f:
 			f.write(niceUrl + ' ' + inputUrl + '\n')
-		free = 1
+		status = 1
 	else:
-		free = 0
+		status = 2
 	resp = make_response(redirect(url_for('home')))
-	ck = {'inputUrl': inputUrl, 'niceUrl': niceUrl, 'niceFull': 'http://'+request.headers['Host']+'/'+niceUrl, 'free': free}
+	ck = {'inputUrl': inputUrl, 'niceUrl': niceUrl, 'niceFull': 'http://'+request.headers['Host']+'/'+niceUrl, 'status': status}
 	resp.set_cookie('ck', json.dumps(ck))
 	return resp
 
