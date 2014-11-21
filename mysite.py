@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 from flask import Flask, render_template, redirect, make_response, request, url_for, json
 app = Flask(__name__)
+file1 = 'urls.txt'
+#file1 = '/home/dim/flask/urls.txt'
 
 @app.route("/")
 def home():
@@ -13,8 +15,10 @@ def home():
 def MakeNice():
 	inputUrl = request.form['inputUrl']
 	niceUrl = request.form['niceUrl']
-	if takeUrl(niceUrl) == '':
-		with open('urls.txt', 'a') as f:
+	if ' ' in niceUrl:
+		status = 3
+	elif takeUrl(niceUrl) == '':
+		with open(file1, 'a') as f:
 			f.write(niceUrl + ' ' + inputUrl + '\n')
 		status = 1
 	else:
@@ -29,7 +33,7 @@ def follow(link):
 	return redirect(takeUrl(link))
 
 def takeUrl(niceUrl):
-	with open('urls.txt', 'r') as f:
+	with open(file1, 'r') as f:
 		for line in f:
 			if line.split(' ')[0]==niceUrl:
 				return line.split(' ')[1].rstrip('\n')

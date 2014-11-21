@@ -24,18 +24,20 @@
 					</div>
 					<button type="submit" class="btn btn-default">Make nice!</button>
 				</form>
+				<br>
 				{% if ck.status == 1 %}
-				<div style="color: green"><h4>Your nice URL: <a href={{ck.niceFull}}>{{ck.niceFull}}</a></h4></div>
+				<div class="alert alert-success" role="alert">Your nice URL: <a href={{ck.niceFull}}>{{ck.niceFull}}</a></div>
 				{% elif ck.status == 2 %}
-				<div style="color: red"><h4>URL "{{ck.niceFull}}" is busy</h4></div>
+				<div class="alert alert-danger" role="alert">URL "{{ck.niceFull}}" is busy</a></div>
+				{% elif ck.status == 3 %}
+				<div class="alert alert-danger" role="alert">URL can not contain spaces</a></div>
 				{% endif %}
 			</div>
 		</div>
 		<div class="navbar navbar-fixed-bottom">
 				<div class="container-fluid">
-					<div class="col-md-6 col-md-offset-3">
-						<p>(с) Dmitry Mylnikov, 2014</p>
-					</div>
+					<div class="col-md-3 col-md-offset-3">(с) Dmitry Mylnikov, 2014</div>
+					<div class="col-md-3"><a href="https://github.com/dmylnikov/flask">Code on GitHub</a></div>
 				</div>
 		</div>
 	</body>

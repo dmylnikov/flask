@@ -5,3 +5,7 @@ my_short_url http://ya.ru
 my_short_url1 http://ya.ru
 123 http://ya.ru
 ewq http://yandex.ru
+ewq1 http://yandex.ru
+ewq14 http://yandex.ru
+ewq145 http://yandex.ru
+ewq1455 http://yandex.ru
