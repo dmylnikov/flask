@@ -8,4 +8,3 @@ ewq http://yandex.ru
 ewq1 http://yandex.ru
 ewq14 http://yandex.ru
 ewq145 http://yandex.ru
-ewq1455 http://yandex.ru
